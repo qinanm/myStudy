@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // arguments 的使用
+        // function fn() {
+        //     console.log(arguments);
+        // }
+        // fn(1,2,3);
+
+        // 利用arguments求任意个数的最大值
+        function maxNum() {
+            var max = Number.MIN_VALUE;
+            for(var i = 0; i < arguments.length; i++){
+                if(max < arguments[i]){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(maxNum(1,2,3,4,5,6,3,3,15,1,1));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

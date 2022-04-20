@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--demo1 利用递归求数学题 求1*2*3*...*n 阶乘 -->
+    <!-- <script>
+        function fn(n){
+            if (n == 1){
+                return 1;
+            }
+            return n*fn(n-1);
+        }
+        console.log(fn(5));
+    </script> -->
+
+    <!-- 利用递归求斐波那契数列（前两项相加 == 第三项） -->
+    <!-- <script>
+        function fn(n){
+            if (n == 1 || n == 2){
+                return 1;
+            }
+            return fn(n-1) + fn(n-2);
+        }
+        console.log(fn(6));
+    </script> -->
+
+    <!-- 利用递归遍历数据  通过输入id号，就可以返回对应的数据对象 -->
+    <script>
+        var date = [{
+            id: 1,
+            name: '家电',
+            goods: [{
+                id: 11,
+                name: '冰箱'
+            }, {
+                id: 12,
+                name: '洗衣机'
+            }]
+        }, {
+            id: 2,
+            name: '服饰'
+        }]
+        function getId(json, id){
+            // 遍历对象数组 json  只需要获得对象
+            var o = {}; //用来存放返回的对象
+            json.forEach(function(item){
+                // 直接打印值
+                // if(item.id === id){
+                //     console.log(item);
+                // } else if(item.goods && item.goods.length > 0){
+                //     getId(item.goods, id);
+                // }
+
+                // 返回值
+                if(item.id === id){
+                    o = item;
+                    return item;  // 将item返回给getId(item.goods, id)
+                } else if(item.goods && item.goods.length > 0){
+                    o = getId(item.goods, id); // getId(item.goods, id)只是一个调用函数，但是，没有把结果返回给o 所以深层无法得到，所以需要将返回值 返回给o 
+                }
+            })
+            return o;
+        }
+        
+        console.log(getId(date, 1));
+        console.log(getId(date, 12));
+        // so amazing!
+    </script>
+</body>
+</html>

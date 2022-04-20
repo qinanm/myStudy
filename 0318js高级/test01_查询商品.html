@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .search{
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        input{
+            width: 50px;
+        }
+        table {
+            margin: 0 auto;
+            /* 合并表格边框 */
+            border-collapse: collapse; 
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th{
+            padding: 0 40px;
+        }
+        td{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="sech_price">
+            <span>按照价格查询：</span>
+            <input type="text"> 
+            <span> - </span>
+            <input type="text">
+            <button>搜索</button>
+        </div>
+        <div class="sech_name">
+            <span>按照商品名称查询：</span>
+            <input type="text">
+            <button>查询</button>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 动态生成内容 -->
+        </tbody>
+    </table>
+    <script src="./test01_查询商品.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 使用Date 
+        // var date = new Date();  // 无参数 返回当前系统的当前时间
+        // var date1 = new Date(2019, 10, 01);  // 参数 数字型 2019, 10, 01 返回的时间会比实际月份大1
+        // var date1 = new Date('2019-10-1 8:8:8');  // 参数 字符串 '2019-10-1 8:8:8' 最常用
+        // console.log(date);
+
+        // //写一个 2022年 3月 9日 星期三 是当前日期
+        // var data = new Date();
+        // var year = data.getFullYear();
+        // var month = data.getMonth() + 1; //注意+1
+        // var datas = data.getDate(); 
+        // var day = data.getDay();
+        // var dayArr = ['日', '一', '二', '三', '四', '五', '六']; //注意0是周日
+        // var str = '今天是：' + year + '年' + month + '月' + datas + '日 星期' + dayArr[day];
+        // console.log(str);
+
+        // // 要求封装一个函数返回当前的时分秒 格式 08:08:08
+        // function getTime(){
+        //     var data = new Date();
+        //     var h = data.getHours();
+        //     h = h < 10 ? '0' + h : h; // 三元表达式 小于10前面+0
+        //     var m = data.getMinutes();
+        //     m = m < 10 ? '0' + m : m;
+        //     var s = data.getSeconds();
+        //     s = s < 10 ? '0' + s : s;
+        //     var str = h + ':' + m + ':' + s;
+        //     return str;
+        // }
+        // console.log(getTime());
+
+
+        // // 获得Date总的毫秒数 距离1970年1月1号过了多少毫秒
+        // var data = new Date();
+        // // 1. 通过valueOf() getTime()
+        // console.log(data.valueOf());
+        // console.log(data.getTime());
+        // // 2. 简单的写法 (最常用的写法)
+        // var data1 = +new Date(); // +new Date() 返回的就是总的毫秒数
+        // console.log(data1);
+        // // 3. H5新增的 获得总的毫秒数
+        // console.log(Date.now());
+
+        // 制作倒计时 
+        // 参数：用户输入的时间
+        function countDown(time){
+            var nowTime = Date.now(); //当期时间
+            var endTime = +new Date(time);  //截止时间
+            var interval = (endTime - nowTime)/1000;  //时间间隔
+            var d = parseInt(interval/60/60/24); //计算天数
+            d = addZero(d);
+            var h = parseInt(interval/60/60%24); //计算小时
+            h = addZero(h);
+            var m = parseInt(interval/60%60); //计算分数
+            m = addZero(m);
+            var s = parseInt(interval%60); //计算秒数
+            s = addZero(s)
+            var str = d + ':' + h + ':' + m + ':' + s;
+            return str;
+        }
+        // 格式 个位数前面+0
+        function addZero(x){
+            x = x < 10 ? '0' + x : x;  
+            return x;
+        } 
+        console.log(countDown('2022-3-9 18:30'));
+        
+
+    </script></head>
+<body>
+    
+</body>
+</html>

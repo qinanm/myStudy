@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* flex布局 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        ul{
+            list-style: none;
+        }
+        .nav{
+            display: flex;
+            justify-content: center;
+        }
+        .nav>li{
+            position: relative;
+            width: 80px;
+            height: 60px;  
+            line-height: 60px; 
+            text-align: center;
+            font-size: 20px;
+        }
+        .nav li .sub-nav{
+            display: none;
+            position: absolute;
+            top: 60px;
+        }
+        .nav li .sub-nav li{
+            width: 80px;
+            height: 30px;  
+            line-height: 30px; 
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">狸花猫</a>
+            <ul class="sub-nav">
+                <li>狸花猫</li>
+                <li>狸花猫</li>
+                <li>狸花猫</li>
+                <li>狸花猫</li>
+                <li>狸花猫</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">波斯猫</a>
+            <ul class="sub-nav">
+                <li>波斯猫</li>
+                <li>波斯猫</li>
+                <li>波斯猫</li>
+                <li>波斯猫</li>
+                <li>波斯猫</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">无毛猫</a>
+            <ul class="sub-nav">
+                <li>无毛猫</li>
+                <li>无毛猫</li>
+                <li>无毛猫</li>
+                <li>无毛猫</li>
+                <li>无毛猫</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">英短</a>
+            <ul class="sub-nav">
+                <li>英短</li>
+                <li>英短</li>
+                <li>英短</li>
+                <li>英短</li>
+                <li>英短</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">暹罗猫</a>
+            <ul class="sub-nav">
+                <li>暹罗猫</li>
+                <li>暹罗猫</li>
+                <li>暹罗猫</li>
+                <li>暹罗猫</li>
+                <li>暹罗猫</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // 制作下拉列表
+        // 1. ​一个nav,无序列表构成 .nav=ul>li
+        // 2. 一个对应内容sub-nav, .nav=ul>li.sub-nav=ul>li
+        // 3. 获取元素：（1）.nav ul子元素li (2) .sub-nav 子元素ul
+        // 4. 注册事件 执行操作 for循环遍历（1），鼠标经过（1），显示（2）；鼠标移开（1） 隐藏（2）；
+        var nav = document.querySelector('.nav');
+        lis = nav.children;  // 获取子元素
+        for (var i = 0; i < lis.length; i ++){
+            lis[i].onmouseover = function(){
+                var subNav = this.children;  // 这个获取元素要写在里面，写在外面经过for循环不断更新，结果subNav只能是获取到最后一个子元素
+                // console.log(subNav[1]);
+                subNav[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function() {
+                var subNav = this.children;
+                // console.log(subNav[1]);
+                subNav[1].style.display = 'none';  
+            }
+        }
+        
+    </script>
+</body>
+</html> 

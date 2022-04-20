@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var nowTime = +new Date(); //当期时间
+        var endTime = +new Date('2022-3-9 17:0:0');  //截止时间
+        var interval = endTime - nowTime;  //时间间隔
+        var d = interval/60/60/60/24; //计算天数
+        console.log(nowTime);
+        console.log(endTime);
+        console.log(interval);
+        console.log(d);
+        console.log(typeof d);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

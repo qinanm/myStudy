@@ -1,0 +1,31 @@
+div {
+  background-color: pink;
+  font-size: font14;
+}
+p {
+  color: pink;
+}
+a {
+  font-size: font14;
+}
+.header {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+.header a {
+  color: red;
+}
+.header a:hover {
+  color: blue;
+}
+div {
+  width: 200px -50;
+  height: 400px;
+  border: 10px solid red;
+  background-color: #444444;
+}
+img {
+  width: 82 / 50rem;
+  height: 82rem / 50px;
+}

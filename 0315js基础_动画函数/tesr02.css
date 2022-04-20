@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+ul{
+    list-style: none;
+}
+ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.focus{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: 5px solid pink;
+    margin: 100px auto;
+    overflow: hidden;
+}
+/* 左右箭头 */
+.focus .l-arrows,
+.focus .r-arrows{
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+    background-color: rgba(18, 19, 19, 0.5);
+}
+.focus .l-arrows{
+    left: 0;
+}
+.focus .r-arrows{
+    right: 0;
+}
+/* 图片 */
+.focus ul{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+/* 咳，做动态效果，这个图片惨不忍睹我也不管了 */
+.focus img{
+    width: 500px;
+    height: 500px;
+}
+/* 小圆点 */
+.focus ol {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+}
+.focus ol li{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin-right: 15px;
+}
+.focus .current{
+    background-color: #fff;
+}

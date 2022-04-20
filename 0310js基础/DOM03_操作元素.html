@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 改变元素内容 -->
+    <!-- <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <script>
+        // 点击按钮 div里面的文字发生变化 innerText
+        var buttonFirst = document.querySelector('button');
+        var divFirst = document.querySelector('div');
+        buttonFirst.onclick = function() {
+            divFirst.innerText = getDate();
+        }
+        function getDate(){
+            var timer = new Date(); // 当前的系统时间
+            var year = timer.getFullYear();
+            var month = timer.getMonth() + 1; //注意0-11 要手动+1
+            month = addZero(month);
+            var date1 = timer.getDate();
+            date1 = addZero(date1);
+            var hour = timer.getHours();
+            hour = addZero(hour);
+            var min = timer.getMinutes();
+            min = addZero(min);
+            var second = timer.getSeconds();
+            second = addZero(second);
+            var dayArr = ['日', '一', '二', '三', '四', '五', '六']
+            var day = dayArr[timer.getDay()]; //getDay() 0-6 0是周日
+            return '现在是：'+year+'年'+month+'月'+date1+'日星期'+day+'  '+hour+':'+min+':'
+            +second;
+        }
+        function addZero(x){
+            x = x < 10 ? '0' + x : x;
+            return x;
+        }
+    </script> -->
+
+    <!-- innerText 和innerHTML区别 -->
+    <!-- <div></div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+    <script>
+        // 1.innerText 不识别html标签
+        var div = document.querySelector('div');
+        div.innerText = '<strong>今天是：</strong> 2022年';
+        // 可读写 获取元素里的内容 会去除标签 空格和换行
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        // 2.innerHTML 识别HTML标签
+        div.innerHTML = '<strong>今天是：</strong> 2022年';
+        // 可读写 获取元素里的内容 保留标签 空格和换行
+        console.log(p.innerHTML);
+    </script> -->
+
+    <!-- 常用属性操作 -->
+    <!-- <button>1111</button>
+    <button>2222</button>
+    <img src="../images/yexuan1.jpg" alt="">
+    <script>
+        // 点击不同的按钮 出现不同的图片
+        var btns = document.getElementsByTagName('button');
+        var img = document.querySelector('img');
+        btns[0].onclick = function() {
+            img.src = '../images/yexuan1.jpg' 
+        }
+        btns[1].onclick = function() {
+            img.src = '../images/yexuan2.jpg' 
+        }
+    </script> -->
+
+    <!-- demo 分时显示不同图片和问候语 -->
+    <!-- <div>上午好</div>
+    <img src="../images/yexuan1.jpg" alt="">
+    <script>
+        // 重点是 对当前时间的判断
+        // 1. 获取元素
+        var div = document.querySelector('div');
+        var img = document.querySelector('img');
+        // 2. 绑定事件 怎样用时间绑定呢？
+        // 得到当前的小时数 使用分支语句实现
+        var date = new Date();
+        var h = date.getHours();
+        if (h <= 5) {
+            div.innerHTML = '晚上好，早点休息';
+            img.src = '../images/yexuan1.jpg';
+        } else if (h <= 12) {
+            div.innerHTML = '上午好';
+            img.src = '../images/yexuan2.jpg';
+        } else if (h <= 18) {
+            div.innerHTML = '下午好';
+            img.src = '../images/yexuan3.webp';
+        } else {
+            div.innerHTML = '晚上好';
+            img.src = '../images/yexuan4.webp';
+        }
+    </script> -->
+
+    <!-- 表单元素的属性操作 -->
+    <!-- <button>按钮</button>
+    <input type="text" value="输入内容">
+    <script>
+        // 通过点击按钮 修改表单内的文字，此时innerHTML是无效的，应该使用value
+        // 1. 获取元素
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+        // 2. 绑定事件 点击按钮 3.执行程序 改变文字
+        btn.onclick = function() {
+            input.value = '被点击了';
+            // 如果想要某个表单被禁用 不能再点击 disabled 
+            // btn.disabled = true; 下面效果相同
+            this.disabled = true;
+            // this 指的是事件函数的调用者
+        }
+    </script> -->
+
+    <!-- 样式属性操作 -->
+    <!-- <div style="width: 100px; height: 100px; background-color: pink;"></div>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function(){
+            // 行内样式操作 element.style 注意js是驼峰命名法
+            div.style.backgroundColor = 'purple';
+            div.style.width = '50px';
+        }
+    </script> -->
+
+    <!-- 表单属性事件 onfocus onblur -->
+    <!-- <input type="text" value="请输入" style="color: #999;">
+    <script>
+        // 1. 获取元素
+        var text = document.querySelector('input');
+        // 2. 注册事件 获得焦点 onfocus
+        text.onfocus = function() {
+            // 判断是不是默认字 是就清空
+            if (this.value === '请输入') {
+                this.value = '';
+            }
+            // 获得焦点 把文字颜色变深 
+            this.style.color = 'black';
+        }
+        // 注册事件 失去焦点 onblur
+        text.onblur = function() {
+            // 判断 表单是否为空 为空就恢复默认字
+            if (this.value === ''){
+                this.value = '请输入';
+            }  
+            // 失去焦点 把颜色变回#999
+            this.style.color = '#999';
+        }
+    </script> -->
+
+    <!-- element.className -->
+    <!-- <div class="first"></div>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function(){
+            // 类名样式操做 element.className
+            // 将需要修改的一系列样式全部修改到change上
+            div.className = 'change';
+            // 如果想要保留原先的格式 使用如下写法 多类名选择器
+            div.className = 'first change';
+        }
+    </script> -->
+
+    <!-- 排它思想 -->
+    <!-- <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        // 1.获取所有的按钮元素
+        var btns = document.getElementsByTagName('button');
+        // 2.注册事件 使用for循环给每个按钮注册点击事件
+        for (var i = 0; i < btns.length; i ++) {
+            btns[i].onclick = function() {
+                // 排它思想：点击时，1.把其他背景颜色全部去除，2.给当前按钮设置背景色
+                for (var j = 0; j < btns.length; j ++) {
+                    btns[j].style.backgroundColor = ''; 
+                }
+                this.style.backgroundColor = 'pink';
+            }
+        }
+    </script> -->
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+//安装了easy less编译插件，当保存时会自动对应的css文件，只要将对应的css文件引入html就可以使用了
+
+// less变量
+// 定义一个粉色的变量
+@color: pink;
+// 定义一个字体大小为14的变量
+@font14: font14;
+
+div{
+    background-color: @color;
+    font-size: @font14;
+}
+p{
+    color: @color;
+}
+a{
+    font-size: @font14;
+}
+
+// less嵌套
+.header{
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    // 子元素的样式直接写到父元素里面
+    a{
+        color:red;
+        //如果有(伪类/交集/伪元素选择器)，内层选择器需要加&符号
+        &:hover{
+            color: blue;
+        }
+    }
+}
+
+
+// less运算
+// 1.运算符左右两侧必须有空格
+// 2.两个数运算，如果只有一个有单位，结果以这个单位为准
+// 3.两个数运算，如果两个单位不一样，则以第一个单位为准
+@border: 5px + 5;
+div{
+    width: 200px -50;
+    height: 200px * 2;
+    border: @border solid red;
+    // 颜色运算
+    background-color: #666 - #222; //结果是#444
+}
+img{
+    width: 82 / 50rem;
+    height: 82rem / 50px; //结果d单位是rem
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=#, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通过id获取元素 -->
+    <!-- <div id="time">2022-3-10</div>
+    <script>
+        // 1.因为页面文档从上往下加载，所以得先有标签，所以script要写到标签的下面
+        // 2.参数 id 是大小写敏感的字符串
+        var timer = document.getElementById('time');
+        console.log(timer, typeof timer); // 3. 返回的是元素对象
+        // 4.console.dir 打印我们返回的元素对象 更好的查看里面的属性和方法
+        console.dir(timer);
+    </script> -->
+    
+    <!-- 根据标签名获取元素 -->
+    <!-- <ul>
+        <li>hhhhhhhhh1</li>
+        <li>hhhhhhhhh2</li>
+        <li>hhhhhhhhh3</li>
+        <li>hhhhhhhhh4</li>
+        <li>hhhhhhhhh5</li>
+    </ul>
+    <script>
+        // 1. 返回的是 获取过来的元素对象的集合 以伪数组的形式存储的
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[2]); //<li>hhhhhhhhh3</li>
+        // 2.采取遍历 依次打印里面的元素对象
+        for(var i = 0; i < lis.length; i++){
+            console.log(lis[i]);
+        }
+        // 3.页面只有一个li或者没有li返回的依旧是伪数组形式
+        
+        // 4.element.getElementsByTagName('标签名')可以获取某个元素（父元素）内部所有指定标签名的子元素
+        // 注意：父元素 必须是单个对象，获取的时候不包括父元素自己
+        var ol = document.getElementsByTagName('ol');
+        console.log(ol[0].getElementsByTagName('li')); //注意获取单个父元素ol[0] (即使只有一个ol也要这么写，因为是伪数组)
+        // 常用写法 给ol加id
+        var ol = document.getElementById('ol');
+        console.log(ol.getElementsByTagName('li'));
+    </script> -->
+
+
+    <!-- H5 新增 根据类名获取标签元素 -->
+    <!-- <div class="box">盒子</div>
+    <div class="box">盒子</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+    <script>
+        // 返回的是伪数组 getElementsByClassName
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);  
+        // querySelector(‘选择器’) 根据指定选择器返回第一个元素对象（不分id标签类了)
+        var firstBox = document.querySelector('.box');
+        console.log(firstBox);
+        var firstNav = document.querySelector('#nav');
+        console.log(firstNav);
+        // querySelectorAll('选择器')； 根据指定选择器返回对应的所有对象
+        var allBox = document.querySelectorAll('.box');
+        console.log(allBox);  // 也是伪数组
+    </script> -->
+
+    <!-- 获取特殊元素 -->
+    <script>
+        // 获取body元素
+        var bodyEle = document.body;
+        console.log(bodyEle);
+        // 获取html元素
+        var htmlEle = document.documentElement;
+        console.log(htmlEle);
+    </script>
+</body>
+</html>

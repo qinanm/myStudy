@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Math.max()/Math.min()
+        // console.log(Math.max(2, -5, 8)); // 8
+        // console.log(Math.max(1, '柒楠')); // 内有非数字型 NaN
+        // console.log(Math.max()); //内无参数 -Infinity
+
+        // demo 利用对象封装自己的数学对象
+        // var myMath = {
+        //     PI: 3.14,
+        //     max: function(){
+        //         var max = -Infinity;
+        //         for (var i = 0; i < arguments.length; i++){
+        //             if(max < arguments[i]){
+        //                 max = arguments[i];
+        //             }
+        //         }
+        //         return max;
+        //     },
+        //     min: function(){
+        //         var max = Infinity;
+        //         for (var i = 0; i < arguments.length; i++){
+        //             if(min > arguments[i]){
+        //                 min = arguments[i];
+        //             }
+        //         }
+        //         return min;
+        //     }
+        // }
+        // console.log(myMath.max(2, -5, 8)); // 8
+        // console.log(myMath.max(1, '柒楠')); // 内有非数字型 NaN
+        // console.log(myMath.max()); //内无参数 -Infinity
+
+        // Math.abs(1); // 1
+        // Math.abs(-1); // 1
+        // Math.abs('-1'); // 1 隐式转换 会把字符串型装换为数字型
+        // Math.abs('pink'); // NaN
+
+        // 得到两个数之间的随机整数 并且包含这两个整数
+        function getRandom(min, max){
+            return Math.floor(Math.random()*(max - min + 1))+ min;
+        } //只要会写这个函数就可以了，感兴趣的可以去了解一下里面的数学
+        console.log(getRandom(1, 10));
+
+        // 随机点名 
+        var boys = ['艾因', '路辰', '罗夏', '司岚', '叶瑄'];
+        alert(boys[getRandom(0, boys.length-1)]);
+        // console.log(boys[getRandom(0, boys.length-1)]);
+
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Set 数据结构
+        const s1 = new Set();
+        console.log(s1.size);  // 0
+        const s2 = new Set([1, '1', 22, 'a']);
+        console.log(s2.size);  // 4
+
+        // 利用Set过滤数组重复数据
+        let arr = [1, 1, 2, 3, 4, 5, 2, 3, 9]
+        let s = new Set(arr);
+        let newSet = [...s];
+        console.log(newSet);  // [1,2,3,4,5,9]
+    </script>
+</body>
+</html>

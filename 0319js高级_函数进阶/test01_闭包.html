@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    
+    <!-- 闭包demo1 循环点击注册事件 点击小li 打印下标 -->
+    <!-- <script>
+        var lis = document.querySelectorAll('li');
+        // 原来的写法
+        // 1. for循环内给每个小li动态定义下标属性index
+        for(var i = 0; i < lis.length; i ++){
+            lis[i].index = i;
+            lis[i].onclick = function(){
+                console.log(this.index);    
+            }
+        }
+        
+        // 闭包写法
+        // 1. for循环内 写 立即执行函数(也被称为小闭包) 传参
+        for(var i = 0; i < lis.length; i ++){
+            // 立即执行函数
+            (function(i){
+                // console.log(this);
+                lis[i].onclick = function(){
+                    // 绑定事件函数使用了立即执行函数的参数，产生了闭包 立即执行函数是闭包函数
+                    console.log(this.index);    
+                }
+            })(i);
+        }
+    </script> -->
+
+    <!-- 循环中的setTimeout()  3秒钟之后，打印所有li元素的内容 -->
+   <!-- <script>
+        var lis = document.querySelectorAll('li');
+        // 闭包写法
+        // 1. for循环内 写 立即执行函数(也被称为小闭包) 传参
+        for(var i = 0; i < lis.length; i ++){
+            // 立即执行函数
+            (function(i){
+                // 定时器 这里涉及了js的同步和异步 还有事件循环
+                // 在等待的3s for作为主栈任务已经循环完了， setTimeout被放到队列中
+                setTimeout(function(){
+                    console.log(lis[i].innerHTML); 
+                },3000);
+            })(i);
+        }
+    </script> -->
+
+    <!-- 计算打车价格  -->
+    <script>
+        // 立即执行函数
+       var car = (function(){
+            var start = 13; // 起步价
+            var total = 0; // 总价
+            return{
+                normal: function(n){
+                    if(n <= 3){
+                        total = start;
+                    } else{
+                        total = start + (n-3)*5;
+                    }
+                    return total;
+                },  // 这里是逗号
+                // 判断是否拥堵 true拥堵 false 不拥堵
+                yd: function(flag){
+                    return flag ? total + 10 : total;
+                }
+            }
+       })()
+       // 调用立即执行函数中返回的函数
+       console.log(car.normal(3)); //13
+       console.log(car.yd(true)); //23
+       console.log(car.normal(5)); //23
+       console.log(car.yd(false)); //23
+    </script>
+</body>
+</html>

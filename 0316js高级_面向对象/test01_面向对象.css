@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+.main{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main h2 {
+    margin: 30px auto;
+}
+/* tap栏 */
+.tabsbox{
+    width: 1000px;
+}
+.tabsbox nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #000;
+    border-bottom: 0px;
+}
+.tabsbox ul{
+    display: flex;
+}
+.tabsbox li{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background-color: pink;
+    text-align: center;
+    line-height: 50px;
+}
+.tabsbox .cur-taptop{
+    border-bottom: 0px;
+}
+.edit{
+    height: 30px;
+    width: 80%;
+    font-size: 17px;
+}
+.tabsbox li span:last-child{
+    height: 60%;
+    width: 80%;
+}
+.tabsbox li span:first-child{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: bisque;
+}
+.tabsbox .add{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: purple;
+}
+.tabscon section{
+    display: none;
+    height: 300px;
+    background-color: aquamarine;
+}
+.tabscon .conactive{
+    display: block;
+}
+

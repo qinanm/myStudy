@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // // 1
+        // console.log(num); //报错
+
+        // // 2 
+        // console.log(num); // undefined 坑1
+        // var num = 10;
+        // // 3 
+        // fn(); // 可以调用
+        // function fn(){
+        //     console.log(11);
+        // }
+        // 4
+        // fun(); //报错 坑2
+        // var fun =  function(){
+        //     console.log(22)
+        // }
+        // fun(); //可以调用
+
+        // demo1 结果是几
+        var num = 10
+        fun();
+        function fun(){
+            console.log(num);
+            var num = 20;
+        }
+        // 将demo1进行预解析
+        var num;
+        function fun(){
+            var num;
+            console.log(num); //undefined
+            num = 20;
+        }
+        num = 10;
+        fun();
+
+        //demo2
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9; //主要注意这个的转换 var a=9 | b = 9 | c = 9
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        // demo2 预解析
+        function f1() {
+            var a;
+            a = b = c = 9; // b和c没有var，直接赋值，属于全局变量
+            console.log(a); //9
+            console.log(b); //9
+            console.log(c); //9
+        }
+        f1();
+        console.log(c); //9
+        console.log(b); //9
+        console.log(a); //报错
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: absolute;
+            top: 0;
+            display: none;
+            width: 175px;
+            border: 1px solid #999;
+            font-size: 20px;
+        }
+        input{
+            margin-top: 27px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box"></div>
+    <input type="search">
+    <script>
+        // 1. 创建一个搜索框，一个盒子，上面的盒子使用绝对定位 获取这两个元素
+        // 2. 注册事件 搜索框输入内容 观察了一下京东快递查询页面，发现是按键弹起时出现效果 所以使用keyup
+        // 3. 事件处理程序 上面的盒子显示并且填入和快递搜索框的内容
+        var box = document.querySelector('.box');
+        var search = document.querySelector('input');
+        search.addEventListener('keyup', function(e){
+            if(search.value){  //只有当搜索框内容不为空时执行下面事件程序 
+                box.style.display = 'block';
+                box.innerHTML = search.value;  // 获取表单元素的内容用value
+            } else{
+                box.style.display = 'none';
+            }
+        });
+        // 案例补充
+        // 1. 当文本框失去焦点时，盒子隐藏 文本框获得焦点时盒子出现
+        search.addEventListener('focus', function(){
+            if(this.value){ //获得焦点时，也要搜索框内容不为空才显示盒子
+                box.style.display = 'block';
+            }
+        });
+        search.addEventListener('blur', function(){
+            box.style.display = 'none';
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for(var i=0; i<100; i++){
+        //     console.log('柒楠，你是叶瑄最爱的小公主喔');
+        // }
+
+        //累加器 求1-100加起来的和
+        // var sum = 0;
+        // var num = prompt('请输入你要累加的最后一位数：');
+        // for(var i=1; i<=parseInt(num); i++){
+        //     sum +=  i;
+        // }
+        // alert(sum);
+
+        // 求1-100之间所有数的平均数
+        // var sum = 0, average = 0;
+        // var num = prompt('请输入你要累加的最后一位数：');
+        // for(var i=1; i<=parseInt(num); i++){
+        //     sum +=  i;
+        // }
+        // average = sum/parseInt(num);
+        // alert(average);
+
+        // 求1-100之间所有偶数和奇数的和
+        // var sum_even = 0;
+        // var sum_odd = 0;
+        // var num = prompt('请输入你要累加的最后一位数：');
+        // for(var i=1; i<=parseInt(num); i++){
+        //     if(i%2 == 0){
+        //         sum_even += i;
+        //     }else{
+        //         sum_odd += i;
+        //     }
+        // }
+        // alert('偶数和：'+sum_even+'\n奇数和：'+sum_odd);
+
+        //双重for循环打印n行n列
+        // var rows = prompt('请输入你要打印的星星行数：');
+        // var columms = prompt('请输入你要打印的列数');
+        // rows = parseInt(rows);
+        // columms = parseFloat(columms);
+        // var str = '';
+        // for(var i=0; i<rows; i++){
+        //     for(var j=0; j<columms; j++){
+        //         str += '1';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+
+        //打印九九乘法表
+        var str = '';
+        for(var i=1; i<=9;  i++){
+            for(var j=1; j<=i; j++){
+                str += j+'*'+i+'='+i*j; 
+            }
+            str += '\n'
+        }
+        console.log(str);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

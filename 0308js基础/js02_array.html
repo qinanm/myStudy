@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // // 利用new来创建数组
+        // var arr = new Array();  // 创建了一个空数组
+        // // 利用数组字面量来创建数组
+        // var arr = [];  
+
+        // //定义数组
+        // var arr = [1, '柒楠', '叶瑄'];
+        // //获取数组中的第2个元素
+        // alert(arr[2]);
+
+        // 遍历数组
+        // var arr = [1,2,3,4,5,'hi','柒楠呀','好喜欢你'];
+        // for(var i = 0; i < arr.length; i++){
+        //     alert(arr[i]);
+        // }
+
+        // 新增数组元素，修改length长度
+        // var arr = [1, '柒楠', '叶瑄'];
+        // console.log(arr.length);
+        // arr.length = 5; //把数组长度修改为5
+        // console.log(arr); 
+        // console.log(arr[4]); // undefined
+        // console.log(arr[5]); // undefined
+
+        // 新增数组元素，修改索引号
+        // var arr = [1, '柒楠', '叶瑄'];
+        // arr[3] = '艾因';
+        // console.log(arr);
+    
+        // 删除指定数组元素 -- 将数组中的0全部去掉后形成一个不包含0的新数组
+        // var arr = [2,0,6,1,77,0,52,0,25,7];
+        // var arrNew = [];
+        // for (var i = 0; i < arr.length; i ++) {
+        //     if(arr[i] == 0){
+        //         continue;
+        //     }
+        //     arrNew[arrNew.length] = arr[i];
+        // }
+        // console.log(arr);
+        // console.log(arrNew);
+
+        // 翻转数组 将数组内的内容反过来存放
+        // var arr = [1,2,3,4,5];
+        // var arrNew = [];
+        // for (var i = arr.length-1; i >= 0; i --) {
+        //     arrNew[arrNew.length] = arr[i];
+        // }
+        // console.log(arr);
+        // console.log(arrNew);
+
+
+        //冒泡排序  将下列数组按照从小到大的顺序排列
+        var arr = [5,4,6,3,1,2];
+        var temp;
+        for (var i = 0; i < arr.length; i++) {  //外层循环趟数
+            for (var j = 0; j < arr.length - (i+1); j++) {  //里面的循环管 每一趟的交换次数
+                //内部交换2个变量的值 前一个和后一个数组元素比较
+                if (arr[j] > arr[j+1]){
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp; 
+                }
+            }
+        }
+        console.log(arr);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 创建简易计算器, 一个运算类 注意构造函数命名 首字母大写
+        function Counter(num1, num2){
+            //输入 数据
+            this.num1 = num1;
+            this.num2 = num2;
+            // 加
+            this.add = function(){
+                return this.num1 + this.num2;
+            }
+            // 减
+            this.sub = function(){
+                return num1 - num2;
+            }
+            // 乘
+            this.multiply = function(){
+                return num1 * num2;
+            }
+            // 除
+            this.divition = function(){
+                return num1 / num2;
+            }
+        }
+        function input1(){
+            var num1 = prompt('请输入第一个数:');
+            return parseFloat(num1);
+        }
+        function input2(){
+            var num2 = prompt('请输入第二个数:');
+            return parseFloat(num2);
+        }
+        var str = '欢迎使用简易计算器:\n1. 加法运算;\n2. 减法运算;\n3. 乘法运算;\n4. 除法运算;\n5. 退出:\n请输入您的选项';
+        var option = 0;
+        var result;
+        while(option != 5){
+            option = parseFloat(prompt(str));
+            if(option != 5){ //防止输入5后下一步还运行创建新运算对象，所以直接跳过去选择case5然后跳出循环
+                var counter_new = new Counter(input1(), input2()); // 新的运算对象
+            }
+            switch (option){
+            case 1:
+                result = counter_new.add();
+                alert('结果是 ' + result);
+                break;
+            case 2:
+                result = counter_new.sub();
+                alert('结果是 ' + result);
+                break;
+            case 3:
+                result = counter_new.multiply();
+                alert('结果是 ' + result);
+                break;
+            case 4:
+                result = counter_new.divition();
+                alert('结果是 ' + result);
+                break;
+            case 5:
+                alert('已退出程序');
+                break;
+            default:
+                alert('输入错误,请重新输入');
+                break;
+            }
+        } 
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="search">
+    <script>
+        // 1. 获取元素 搜索框 
+        // 2. 对页面文档注册按键事件 onkeydown
+        // 3. 使用e.keyCode识别按键 如果按键为s键  那么将就聚焦搜索框
+
+        // 获取元素
+        var search = document.querySelector('input');
+        // 注册事件 对整个页面文档
+        document.addEventListener('keyup', function(e){
+            if(e.keyCode == 83){  //keydown不区分大小写，都以大写字母为准 S的ASCII码是83
+                // console.log('按了S');
+                search.focus();
+            }
+        });
+    </script>
+</body>
+</html>

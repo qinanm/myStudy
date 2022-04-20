@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1. 使用setInterval进行倒计时 设置变量seconds
+        // 2. 当seconds<=0的时候 使用location.href 跳转指定页面
+        var div = document.querySelector('div');
+        var seconds = 5;
+        div.innerHTML = seconds+'秒之后自动跳转页面';
+        var timer = setInterval(function(){
+            if (seconds <= 0){
+                location.href = 'https://www.bilibili.com/';
+                clearInterval(timer);
+            } else{
+                seconds--;
+                div.innerHTML = seconds+'秒之后自动跳转页面';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

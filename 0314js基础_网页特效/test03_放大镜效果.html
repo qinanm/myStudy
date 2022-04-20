@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .l-box{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            float: left;
+            margin-left: 100px;
+            width: 400px;
+            height: 600px;
+            background-color: pink;
+        }
+        .l-box img{
+            width: 250px;
+        }
+        .s-box{
+            display: none;
+            position: absolute;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            background-color: blanchedalmond;
+            opacity: .5;
+            cursor: move;
+        }
+        .r-box{
+            position: relative;
+            display: none;
+            float: right;
+            margin-right: 100px;
+            width: 800px;
+            height: 1000px;
+            background-color: aquamarine;
+            overflow: hidden;
+        } 
+        .r-box img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            margin-left: 400px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="l-box">
+        <img src="../images/yexuan1.jpg" alt="">
+        <div class="s-box"></div>
+    </div>
+    <div class="r-box">
+        <img src="../images/yexuan1.jpg" alt="">
+    </div>
+    <script>
+        var lBox = document.querySelector('.l-box');
+        var rBox = document.querySelector('.r-box');
+        var sBox = document.querySelector('.s-box');
+        var bimg = rBox.children[0];
+        lBox.addEventListener('mouseover', function(){
+            rBox.style.display = 'block';
+            sBox.style.display = 'block';
+        });
+        lBox.addEventListener('mouseout', function(){
+            rBox.style.display = 'none';
+            sBox.style.display = 'none';
+        });
+        sBox.addEventListener('mousedown', function(e){
+            // 
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            document.addEventListener('mousemove', move);
+            function move(e){
+                var sleft = e.pageX - x;
+                var stop = e.pageY - y;
+                // 让s-box 不能超过 l-box
+                var smostX = lBox.offsetWidth - sBox.offsetWidth; // 遮罩的最大移动距离
+                var smostY = lBox.offsetHeight - sBox.offsetHeight; 
+                if(sleft <= 0){
+                    sBox.style.left = 0;
+                }else if(sleft >= smostX){
+                    sBox.style.left = smostX + 'px';
+                } else {
+                    sBox.style.left = sleft + 'px';
+                }
+                if(stop <= 0){
+                    sBox.style.top = 0;
+                }else if(stop >= smostY){
+                    sBox.style.top = smostY +'px';
+                }else{
+                    sBox.style.top = stop + 'px';
+                }
+                // 大图片的最大移动距离
+                var bmostX = rBox.offsetWidth - bimg.offsetWidth; 
+                var bmostY = rBox.offsetHeight - bimg.offsetHeight;
+                // 大图片的最终移动距离
+                var bX = sBox.offsetLeft * bmostX / smostX;
+                var bY = sBox.offsetTop * bmostY / smostY;
+                console.log(bX);
+                console.log(bY);
+                bimg.style.left = '-' + bX + 'px';
+                bimg.style.top = '-' + bY + 'px';
+            };
+            document.addEventListener('mouseup', function(){
+                document.removeEventListener('mousemove', move);
+            });
+        });
+        // sBox.addEventListener('mousedown', function(e){
+        //     // 获得鼠标在小盒子内的坐标
+        //     var x = e.pageX - this.offsetLeft;
+        //     var y = e.pageY - this.offsetTop;
+        //     document.addEventListener('mousemove', move);
+        //     function move(e){
+        //         var sleft = e.pageX - x;
+        //         var stop = e.pageY - y;
+        //         // 让s-box 不能超过 l-box
+        //         if(sleft <= 0){
+        //             sBox.style.left = 0;
+        //         }else if(sleft >= lBox.offsetWidth - sBox.offsetWidth){
+        //             sBox.style.left = lBox.offsetWidth - sBox.offsetWidth + 'px';
+        //         } else {
+        //             sBox.style.left = sleft + 'px';
+        //         }
+        //         if(stop <= 0){
+        //             sBox.style.top = 0;
+        //         }else if(stop >= lBox.offsetHeight - sBox.offsetHeight){
+        //             sBox.style.top = lBox.offsetHeight - sBox.offsetHeight +'px';
+        //         }else{
+        //             sBox.style.top = stop + 'px';
+        //         }
+        //     };
+        //     document.addEventListener('mouseup', function(){
+        //         document.removeEventListener('mousemove', move);
+        //     });
+        // });
+
+    </script>
+</body>
+</html>

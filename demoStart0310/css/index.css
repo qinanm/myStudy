@@ -1,0 +1,20 @@
+/* 使用flex布局 */
+
+/* 猫猫背景*/
+.bg{
+display: flex;
+justify-content: center;
+/* 固定定位 */
+position: fixed;
+top: 50px;
+width: 100%;
+}
+.bg img{
+width: 150px;
+border-radius: 15px;
+margin: 5px;
+}
+body{
+    background: url(../images/bg_cat1.jpg) no-repeat;
+    background-size: cover;
+}

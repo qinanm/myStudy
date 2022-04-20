@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 内置对象 构造函数方法 Array.from()  将类数组或可遍历对象转换为真正的数组
+        // let arrayLike = {
+        //     '0': 'a',
+        //     '1': 'b',
+        //     '2': 'c',
+        //     length: 3
+        // };
+        // let arr1 = Array.from(arrayLike); // ['a', 'b', 'c']
+        // console.log(arrayLike); // 不变
+        // console.log(arr1);
+        // // Array.from的第二个参数(是一个函数)，可以对每个元素进行处理，将处理后的值放入返回的数组
+        // let arr2 = Array.from(arrayLike, item => item+2);
+        // console.log(arr2);
+
+        // Array实例方法 find()  用于查找第一个符合条件的数组成员，如果没有返回undefined
+        // let arrObjs = [{
+        //         id: 1,
+        //         name: 'mmu'
+        //     },
+        //     {
+        //         id: 2,
+        //         name: 'hao'  
+        //     }];
+        // let target = arrObjs.find((item,index) => item.id == 2);
+        // console.log(target);
+
+        // Array实例方法 findIndex()  用于查找第一个符合条件的数组成员的索引，如果没有返回-1
+        // let arr = [0, 1, 2, 3, 4, 5]
+        // let index = arr.findIndex((value, index) => value == 2);  //2
+        // let index1 = arr.findIndex(value => value > 2);  //3
+        // console.log(index);  // 2
+        // console.log(index1);  // 2
+
+        // Array实例方法 includes() 表示某个数组是否包含给定的值，返回布尔值
+        // let arr = [0,1,20,30,4,55,9];
+        // console.log(arr.includes(55));
+        // console.log(arr.includes(333));
+        
+
+        // String 模板字符串 ``
+        // 可以解析变量
+        // let uname = '张三';
+        // let who = `谁是${uname}`;  // 代替了拼接字符串的写法
+        // console.log(who);
+        // // 可以换行
+        // let html = `<ul>
+        //         <li></li>
+        //         <li></li>
+        //         <li></li>
+        //         <li></li>
+        //     </ul>`;
+        // // 可以调用函数
+        // let fn = () => 'hhhhhhh';
+        // let hh = `笑死我了${fn()}`;
+        // console.log(hh); 
+        
+        // String 实例方法 startsWith() 和 endsWith()
+        // let str = 'hello 222 !';
+        // console.log(str.startsWith('hello'));  // true
+        // console.log(str.endsWith('!')); // true
+
+        // String 实例方法 repeat(n)  将原字符串重复n次, 返回新的字符串
+        // let str =   `${'宝贝'.repeat(5)},我好喜欢你呀`;  // 好家伙 ``模板字符串还能这么用的，我自己瞎想的结果是实现了 
+        // console.log(str);
+        
+    </script>
+</body>
+</html>

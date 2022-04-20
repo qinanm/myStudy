@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1. 首先得到当前距离将来时间的倒计时 计算可以得到 封装成一个函数 
+        // 2. 使用定时器setInterval(函数，[时间间隔])，调用1的函数 时间间隔为1000（ms）
+       
+        //获取元素
+        var div = document.querySelector('div');
+        // 封装倒计时函数
+        var countDown = function(time){
+            var nowTime = Date.now(); //当前时间戳
+            var endTime = +new Date(time); //截止时间戳
+            var interval = (endTime - nowTime)/1000; // 时间间隔
+            var h = parseInt(interval/60/60%24); // 小时
+            h = h < 10 ? '0' + h : h;
+            var m = parseInt(interval/60%60); // 分钟
+            m = m < 10 ? '0' + m : m;
+            var s = parseInt(interval%60); //秒
+            s = s < 10 ? '0' + s : s;
+            return h + ':' + m + ':' + s;
+        }
+        // 封装要调用的函数
+        var fn = function(){
+            div.innerHTML = countDown('2022-3-13 10:30:00');
+        }
+        // 提前先调用一次防止出现空白
+        fn();
+        var timer = setInterval(fn, 1000);
+    </script>
+</body>
+</html>

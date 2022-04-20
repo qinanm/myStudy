@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .leave-word{
+            margin-top: 100px;
+        }
+        li button{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="leave-word">
+        <!-- 多行文本 -->
+        <textarea name="留言框" id="word-input" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul>
+            <li>
+                111
+                <button>删除</button>
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        // 发布留言
+        // 1. 一个大盒子.leave-word装整个留言板块 一个.word-input框输入留言， 一个button控制发布留言， li添加留言
+        // 2. 获取元素 .word-input  button li
+        // 3. 注册事件 button.onclick  点击发布
+        // 4. 执行程序 添加元素li 先创建 document.createElement('li') 再添加,保持最新评论置顶 parentNode.insertBefore(li, parentNode[2])
+        var leaveWord = document.querySelector('.leave-word');
+        var wordInput = leaveWord.children[0];
+        var btn = leaveWord.children[1];
+        var ul = leaveWord.children[2];
+        // console.log(btn);
+        btn.onclick = function() {
+            // wordInput.innerText = '222'; // ?明明可以写入却无法读取
+            // console.log(wordInput.innerText);  // ?就是说textarea里面的内容不可读取
+            // console.log(wordInput.textContent);  // 好了 可以使用textContent读取
+            // 判断 wordInput 是否为空 为空弹出，你并未输入内容，无法发布
+            if(wordInput.value== ''){  // 好家伙 看了视频 居然是用value 前面全部推翻
+                alert('您并未输入内容，无法发布留言。');
+            } else{
+                // 不为空 1.创建元素
+                var li = document.createElement('li');
+                var button = document.createElement('button'); //创建删除按钮 以备后续删除
+                button.innerHTML = '删除'; //给button 添加提示语
+                li.innerHTML = wordInput.value;  //将留言框的内容提取给li
+                // 2.添加元素 
+                li.appendChild(button);
+                ul.insertBefore(li, ul.children[0]); // 使新添加的是内容始终保持置顶
+                // 3.添加成功后，清除留言框内容
+                wordInput.value = '';
+
+                // 删除留言需要写到添加留言的内部， 否则在外部按照顺序只能获取未添加前的已知的内容
+                // 删除留言 
+                // 1. 在发布留言时，给li添加一个删除留言的子元素按钮button以备使用
+                // 2. 获取  删除button 元素 
+                // 3. 注册事件 点击 删除button  -- 删除评论li
+                var lis = ul.children;
+                // 如果ul中存在li 才进行后续删除操作
+                if(lis.length != 0){
+                    // console.log(lis[0].children[0]);
+                    for (var i = 0; i < lis.length; i ++) {
+                        lis[i].children[0].onclick = function() {  // li只有删除button一个元素节点
+                            ul.removeChild(this.parentNode); 
+                        }
+                    }
+                }
+            }
+
+        }
+
+        
+        
+    </script>
+</body>
+</html>

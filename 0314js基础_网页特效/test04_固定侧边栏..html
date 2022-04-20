@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./animation.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .aside{
+            position: absolute;
+            right: 0;
+            top: 350px;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+        .font{
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            background-color: aquamarine;
+        }
+        p{
+            width: 300px;
+            height: 500px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="aside">
+        <div class="font">顶部</div>
+    </div>
+    <div class="con">
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+    </div>
+    <script>
+        var aside = document.querySelector('.aside');
+        var font = document.querySelector('.font');
+        var atop = 350; //offsetTop会动态变化 那我就不获取了 直接给定值吧 命名不能直接为top 之前就是命名为top一直有问题 改个名字就正常了
+        document.addEventListener('scroll', function(){
+            // 页面被卷曲的头部距离 window.pageYOffset
+            // console.log(window.pageYOffset);
+            if(window.pageYOffset >= atop){
+                aside.style.position = 'fixed';
+                aside.style.top = '0';
+                console.log(atop+20);
+                if(window.pageYOffset > atop + 20){
+                    console.log('进来');
+                    font.style.display = 'block';
+                }else{
+                    font.style.display = 'none';
+                }
+            } else{
+                aside.style.position = 'absolute';
+                aside.style.top = atop + 'px';
+                font.style.display = 'none';
+            }
+        })
+        // 点击 使窗口返回页面顶部 window.scroll(x,y)
+        font.addEventListener('click', function(){
+            // window.scroll(0, 0);
+            animation(window, 0);
+        })
+    </script>
+</body>
+</html>

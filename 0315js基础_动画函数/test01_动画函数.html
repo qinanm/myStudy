@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>动画函数</div>
+    <button>点击开始动画走200</button>
+    <button>点击开始动画走500</button>
+    <script>
+        var div = document.querySelector('div');
+        function animation(obj, target){
+            // 在定时器开始之前 先清除先前的定时器
+            clearInterval(obj.timer);
+            var step = 0; // 缓动步长变量
+            // 定时器
+            obj.timer = setInterval(function(){
+                var curX = obj.offsetLeft; // 获取元素当前位置
+                // 定时器终止条件 到达目的位置
+                if(curX == target){
+                    clearInterval(obj.timer);
+                }
+                step = (target-curX)/20; // 缓动核心算法
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = curX + step + 'px'; // 移动元素
+            },30)
+        }
+        // 点击开始事件
+        var btns = document.querySelectorAll('button')
+        var btn1 = btns[0];
+        var btn2 = btns[1];
+        btn1.addEventListener('click', function(){
+            animation(div, 200);
+        });
+        btn2.addEventListener('click', function(){
+            animation(div, 500);
+        });
+    </script>
+</body>
+</html>

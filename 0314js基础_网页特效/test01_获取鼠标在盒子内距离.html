@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1. 获取盒子元素
+        // 2. 注册盒子点击(更新：移动mousemove)事件 通过对象获取鼠标在页面的距离（e.pageX, e.pageY）
+        // 3. 通过offset系列属性得到 盒子在页面的距离（offsetWidth, offsetHeight）
+        // 4. 那么鼠标在盒子内的距离 = e.pageX - offsetWidth, e.pageY - offsetHeight
+        var div = document.querySelector('div');
+        div.addEventListener('mousemove', function(e){
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetHeight;
+            // console.log(x,y);
+            this.innerHTML = 'x坐标：'+x+"y坐标："+y;
+        })
+    </script>
+</body>
+</html>

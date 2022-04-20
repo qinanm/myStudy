@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var flag1 = true,  // boolean
+            flag2 = false,
+            variable,  //undefined
+            a = null;  //null
+            num = 10,  // number
+            str = '你好呀',  //string
+        // boolean + number
+        console.log(flag1 + num); //11 true 和数字相加作为1
+        console.log(flag2 + num); //10 false 和数字相加作为0
+        // bolean + string
+        console.log(flag1 + str); //true你好呀
+        console.log(flag2 + str); //false你好呀
+        // undefined + number
+        console.log(variable + num); //NAN
+        // undefined + string
+        console.log(variable + str); //undefined你好呀
+        // null + number
+        console.log(a + num); //10 null和数字相加作为0
+        // null + string 
+        console.log(a + str); //null你好呀
+
+        console.log(typeof 12);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

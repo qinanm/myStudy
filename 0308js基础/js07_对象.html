@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 利用对象字面量创建对象 {}
+        // var obj = {}; // 创建了一个空的对象
+        // var obj = {
+        //     uname: '柒楠',
+        //     age: 18,
+        //     sex: '女',
+        //     position: '小画家',
+        //     sayHi: function(){
+        //         console.log('hi~~');
+        //     }
+        // }
+
+        // 利用对象字面量创建一个名字为keke的狗对象
+        // var keke ={
+        // dogName: '可可',
+        // type: '阿拉斯加',
+        // age: 5,
+        // color: 'brown',
+        // bark: function(){
+        //     console.log('汪汪汪');
+        // },
+        // showFilm: function(){
+        //     console.log('演电影');
+        // }
+        // }
+        // console.log(keke);
+        
+
+
+        // 利用 new Object 创建对象
+        // var obj = new Object();
+        // obj.uname = '柒楠';
+        // obj.age = '18';
+        // obj.sex = '女';
+        // obj.sayHi = function(){
+        //     console.log('hi~');
+        // }
+        // 我们是利用 = 赋值的方法 添加对象的属性和方法
+        // 每个属性和方法用分号结束
+        // 调用属性的方法是一样的
+        // var obj = new Object();
+        // obj.uname = '鸣人';
+        // obj.sex = '男';
+        // obj.age = 19;
+        // obj.skill = function(){
+        //     console.log('影分身术')
+        // }
+        // console.log(obj) 
+
+        // 构造函数语法
+        // function 构造函数名(){
+        //     this.属性 = 值;
+        //     this.方法 = function();
+        // }
+        // new 构造函数名; //调用
+
+        // 构造函数创建四大天王的对象 相同点 名字 年龄 性别 唱歌
+        // function Star(uname, age, sex){
+        //     this.name = uname;
+        //     this.age = age;
+        //     this.sex = sex;
+        //     this.sing = function(sang){
+        //         console.log(sang);
+        //     }
+        // }
+        // var ldh = new Star('刘德华', 18, '男'); // 调用构造函数返回的是一个对象
+        // ldh.sing('冰雨'); //调用方法
+        // console.log(typeof ldh);
+        // 1. 构造函数 名字首字母要大写
+        // 2. 构造函数不需要return 就可以返回结果
+        // 3. 调用构造函数 必须使用new
+
+        // 构造函数 王者英雄
+        // function Hero(uname, type, blood){
+        //     this.uname = uname;
+        //     this.type = type;
+        //     this.blood = blood;
+        //     this.attack = function(way){
+        //         console.log(way)
+        //     }
+        // }
+        // var lianpo = new Hero('廉颇', '力量型', 500);
+        // lianpo.attack('近战');
+        // var houyi = new Hero('后羿', '射手型', 100);
+        // lianpo.attack('远程');
+        // console.log(lianpo);
+        // console.log(houyi);
+
+        // 遍历对象
+        var keke ={
+            dogName: '可可',
+            type: '阿拉斯加',
+            age: 5,
+            color: 'brown',
+            bark: function(){
+                console.log('汪汪汪');
+            },
+            showFilm: function(){
+                console.log('演电影');
+            }
+        }
+        for (var k in keke) {
+            console.log(k); //k 变量 不需要赋值 得到 属性名
+            console.log(keke[k]); // keke[k] 得到属性值
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

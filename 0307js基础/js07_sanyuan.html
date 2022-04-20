@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //注意点，prompt用户输入内容皆规定为字符串，所以比较需要强制装换
+        var num = prompt('请输入数字：')
+        parseInt(num) < 10 ? num = 0 + num: num;
+        alert(num);
+
+        //测试，parseInt和parseFloat转换同一个 整数，得到结果是否相同
+        // var str = '10';
+        // var num1 = parseInt(str);
+        // var num2 = parseFloat(str);
+        // console.log(num1 == num2); //true
+        // console.log(num1 == num2); //true
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 检测是否为数组
+        // 1. instanceof 运算符 
+        // var arr = [];
+        // var obj = {};
+        // console.log(arr instanceof Array); //true
+        // console.log(obj instanceof Array); //false
+        // console.log(obj instanceof Object); //true
+        // // 2.Array.isArray(参数) H5新增 ie9以上才支持
+        // console.log(Array.isArray(arr)); //true
+        // console.log(Array.isArray(obj)); //false
+
+
+        // //添加和删除数组元素
+        // // 1.push() 可以给数组追加新的元素 参数直接写数组元素 有返回值为新数组的长度
+        // var arr = [1,2,3];
+        // console.log(arr.push(8, 'hi', '柒楠')); // 6 数组新长度
+        // console.log(arr); // 出现了预解析问题，这里本来应该是 6个元素 却把下面的也打印出来了
+        // // 2.unshift() 在数组的开头 添加一个或者多个数组元素
+        // console.log(arr.unshift('red', 'purple')); // 8 数组新长度
+        // console.log(arr); // 
+        // // 3.pop() 删除数组的最后一个元素  无参数 返回删除的那个元素
+        // // 4.shift() 删除数组的第一个元素 一次只能删除一个元素
+
+        // // 数组排序
+        // // 1.翻转数组 reverse()
+        // var arr = ['pink', 'red', 'blue'];
+        // arr.reverse();
+        // console.log(arr);
+        // // 2.数组排序 (冒泡排序) sort()
+        // var arr1 = [13, 4, 77, 1, 7];
+        // // arr1.sort(); //但数组元素储量两位数是，只按第一个数排序
+        // arr1.sort(function(a,b) {return a - b;}); //升序比较固定的一个写法 要记住 降序 b-a
+        // console.log(arr1);
+
+        // 返回数组索引
+        // indexOf(数组元素) 返回第一个和参数相匹配的数组元素索引 找不到则返回-1
+        // lastIndexOf 从后面开始查找 返回的最后一个和参数匹配的数组元素索引 找不到返回-1
+
+        // demo 数组去重(重点案例)
+        // var arr1 = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'];
+        // var arr2 = [];
+        // for(var i = 0; i < arr1.length; i++){ //将数组1的每一个元素遍历数组2 如果找不到相同的元素，就将此元素添加到数组2
+        //     if(arr2.indexOf(arr1[i]) == -1){  
+        //         arr2.push(arr1[i]);
+        //     }
+        // }
+        // console.log(arr2);
+
+        // 数组转换为字符串
+        // 1. toString()
+        var arr = [1,2,3];
+        console.log(arr.toString()); //1,2,3
+        console.log(arr); // [1,2,3] 依旧是数组，没有被影响
+        // 2. join(分隔符) 不加分割符默认逗号
+        console.log(arr.join()); //1,2,3
+        console.log(arr.join('-')); //1-2-3
+        console.log(arr.join('&')); //1&2&3
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

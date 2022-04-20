@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字符串对象
+        // 基本包装类型
+        // var str = 'andy';
+        // console.log(str.length); //4 
+        // // 字符串作为简单数据类型却拥有length属性 就是因为基本包装类型 实现过程如下
+        // var temp = new String('andy'); // 生成临时变量 把简单数据类型包装为复杂数据类型
+        // str = temp; // 把临时变量的值给 str
+        // temp = null; // 销毁这个临时变量
+
+        // 根据字符返回对象 str.indexOf('要查找的字符',[起始位置]) 对数组同样适用
+        // var str = '改革春风吹满地，春天来了'
+        // console.log(str.indexOf('春'))
+        // console.log(str.indexOf('春', 3)) //从索引号第三开始查找
+
+        // // demo 返回字符串位置 查找字符串中所有o出现的位置和次数
+        // var str = 'abcoefoxyozzopp';
+        // var locat = []; // 存放字符（o）出现的位置
+        // var num = 0; // 计算字符（o）出现的次数
+        // var i = -1; // 更新字符的索引
+        // while(str.indexOf('o', i + 1) != -1){
+        //     i = str.indexOf('o', i + 1); 
+        //     locat.push(i); //这里之前用了location报错了，改了一下命名就可以了，所以 location是关键字
+        //     num ++;
+        // }
+        // console.log(locat);
+        // console.log(num);
+
+        // 根据视频微调 思路基本一致 en..我觉得那点小细节还是上面我的想法好一点
+        // var str = 'abcoefoxyozzopp';
+        // var index = str.indexOf('o'); // pink老师是直接先给索引赋第一个值 命名规范 index
+        // var locat = [index]; // 存放字符（o）出现的位置
+        // var num = 1; // 计算字符（o）出现的次数
+        // while(index != -1){
+        //     index = str.indexOf('o', index + 1); 
+        //     if(index == -1){
+        //         continue;
+        //     }
+        //     locat.push(index); //这里之前用了location报错了，改了一下命名就可以了，所以 location是关键字
+        //     num ++;
+        // }
+        // console.log(locat);
+        // console.log(num);
+
+        // // 根据位置返回字符
+        // // 1.charAt(index)  可用于遍历字符串打印输出
+        // var str = 'andy';
+        // console.log(str.charAt(3)); //d 返回索引为三的字符
+        // // 2. charCodeAt(index) 返回相应索引号的字符ASCII值 目的：判断用户按下了哪个键
+        // console.log(str.charCodeAt(0)); //97
+        // // 3. str[index] h5新增的 和 charAt(index)用法一致 不同点在于兼容性
+        // console.log(str[0]); //a 
+
+
+        //demo -- 判断一个字符串中出现次数最多的字符，并统计其次数
+        var str = 'abcoefoxyozzopp';
+        var obj = new Object();
+        for (var i = 0; i < str.length; i++){
+            var chars = str.charAt(i);
+            if (obj[chars]) { //如果对象有chars这个字符，就+1,没有添加属性然后赋值1
+                obj[chars] ++;
+            } else {
+                obj[chars] = 1;
+            }
+        }
+        console.log(obj);
+        // 使用 for in 遍历对象
+        var max = -Infinity; //存储最大值
+        var strMax; //存储最大值对应的字符
+        for (var j in obj){
+            if (max < obj[j]){
+                max = obj[j];
+                strMax = j;
+            } 
+        }
+        console.log('出现最对次数的字符：'+ strMax + '出现次数：' + max);
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

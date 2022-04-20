@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        data = {
+            age: 12,
+            name: 'mumu',
+            msg: {
+                age: 18,
+            },
+            color: ['pink', 'red']
+        };
+        var o = {};
+        // 浅拷贝  --- 使用for in
+        // for (var k in data){
+        //     o[k] = data[k];
+        // }
+        // console.log(o);
+        // o.msg.age = 20;  // 浅拷贝深层拷贝引用（指向同一个地址） 修改o数据 会以影响data
+        // console.log(data);
+
+        // 浅拷贝  --- 语法糖 Object.assign(newObj, oldObj);
+        // Object.assign(o, data); //将data拷贝给o
+        // console.log(o);
+        // o.msg.age = 20;  // 浅拷贝深层拷贝引用（指向同一个地址） 修改o数据 会以影响data
+        // console.log(data);
+
+        // 深拷贝  --- 函数递归+for in 
+        function deepCopy(newObj, oldObj){
+            for (var k in oldObj){
+                // 获取属性值 oldObj[k]
+                var item = oldObj[k];
+                // 判断 属性值item  是否是数组  写在对象前面判断是因为 数组也是一个对象
+                if(item instanceof Array){
+                    newObj[k] = [];
+                    deepCopy(newObj[k], item);
+                } else if (item instanceof Object){
+                    // 判断 属性值item 是否是对象
+                    newObj[k] = {};
+                    deepCopy(newObj[k], item);
+                }else{
+                    // 属性值item 是 简单数据类型 即没有深层，就是最外层数据
+                    newObj[k] = item;
+                }  
+            }
+        }
+        deepCopy(o, data);
+        console.log(o);
+        o.msg.age = 20;  // 浅拷贝深层拷贝引用（指向同一个地址） 修改o数据 会以影响data
+        console.log(data);
+    </script>
+</body>
+</html>

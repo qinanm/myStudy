@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    请输入用户名：<input type="text" name="uname"><span>只能输入因为英文字母，数字，下划线和-，且长度在6-16之间</span><br>
+    <button>提交</button>
+    <script>
+        // 功能需求：
+        // 1. 如果用户名输入合法，则后面提示信息为 用户名合法，并且颜色为绿色
+        // 2. 如果用户名输入不合法，则后面提示信息为：用户名不符合规范，并且颜色为红色
+        // 实现步骤
+        // 1. 获取元素 input表单 和 button提交按钮 和提示语句span
+        // 2. 创建一个正则表达式a  使用test测试input.value
+        // 3. true --> span 绿色+提示语   false --> 红色加提示语
+        
+        // // 获取元素
+        // var input = document.querySelector('input');
+        // var remindText = document.querySelector('span');
+        // var btn = document.querySelector('button');
+        // // 注册事件
+        // var reg = /abc/;  // 创建正则表达式
+        // btn.addEventListener('click', function(){
+        //     if(reg.test(input.value)){
+        //         remindText.innerHTML = '用户名合法';
+        //         remindText.style.color = 'green';
+        //     } else{
+        //         remindText.innerHTML = '用户名不合法';
+        //         remindText.style.color = 'red';
+        //     }
+        // })
+
+
+        // 没有button点击的情况下， 表单失去焦点就开始验证
+        var input = document.querySelector('input');
+        var remindText = document.querySelector('span');
+        // 注册事件 表单失去焦点
+        var reg = /^[a-zA-Z0-9_-]{6,16}$/;  // 创建正则表达式
+        input.addEventListener('blur', function(){
+            if(reg.test(this.value)){
+                remindText.innerHTML = '用户名合法';
+                remindText.style.color = 'green';
+            } else{
+                remindText.innerHTML = '用户名不合法';
+                remindText.style.color = 'red';
+            }
+        });
+        // 用户弹起enter键的时候 也验证
+        input.addEventListener('keyup', function(e){
+            if(e.keyCode === 13){
+                this.blur();
+            }
+        })
+    </script>
+</body>
+</html>

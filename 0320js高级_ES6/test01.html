@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>叶瑄</li>
+        <li>你好</li>
+        <li>我是</li>
+        <li>柒楠</li>
+        <li>是</li>
+        <li>你的</li>
+        <li>女朋友</li>
+    </ul>
+    <script>
+        // 暂时性死区
+        // let a = 10;
+        // if(true){
+        //     console.log(a);
+        //     let a = 20;  //暂时性死区 和全局作用域的变量名相同 且在块级作用域声明赋值前使用，就会报错
+        // }
+
+        // 剩余参数  ...args
+        // const sum = (...args) =>  {
+        //     let total = 0;
+        //     args.forEach(item=> total += item)
+        //     return total;
+        // }
+        // console.log(sum(10,20,30));
+
+        // 扩展运算符 ...arr
+        // let arr = [12, 23, 45]
+        // console.log(...arr); //等同于下面
+        // console.log(12, 23, 45);
+        // 合并数组
+        // let arr1 = [1, 2, 3];
+        // let arr2 = ['qq', 'wx', 'tb'];
+        // let newarr = [...arr1, ...arr2];  // 直接合并 
+        // arr1.push(...arr2); // 使用push合并
+        // console.log(arr1);
+        // console.log(newarr);
+        // 将类数组或可比遍历对象装换为真正的数组
+        // let lis = document.querySelectorAll('li');
+        // console.log(lis);
+        // lis = [...lis];
+        // console.log(lis);
+        // console.log(lis[0].innerHTML);
+
+    </script>
+    
+</body>
+</html>

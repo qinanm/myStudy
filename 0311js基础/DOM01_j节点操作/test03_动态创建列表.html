@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 动态生成表格
+        // 1. 创建一个表格 分为thead 和 tbody
+        // 2. 动态生成表格所需要的数据 一般是来自后台（数据库），这里没有就用对象代替 创建一个对象数组存放数据
+        // 3. 遍历对象数组,得到tbody的行数  添加tr
+        // 4. 使用for k in obj遍历单个对象，得到每行的列数  添加td  使用innerHTML给每个对象赋值 obj[k]:对象属性值
+        // 5. 添加 操作列 td 使用appendChild(child) 追加每行的列  给列添加内容<a href='javaScript:;'>删除</a>  javaScript:;和javaScript:void(0);都是用来取消a的页面跳转功能的
+        
+        // 创建对象数组
+        var objs = [{
+            name: '叶瑄',
+            course: 'JavaScript',
+            score: 100,
+        },{
+            name: '艾因',
+            course: 'JavaScript',
+            score: 99,
+        },{
+            name: '路辰',
+            course: 'JavaScript',
+            score: 99,
+        },{
+            name: '罗夏',
+            course: 'JavaScript',
+            score: 99,
+        },{
+            name: '司岚',
+            course: 'JavaScript',
+            score: 99,
+        }]
+        // 获取元素tbody 后面作添加元素是用
+        var tbody = document.querySelector('tbody');
+        // 遍历对象数组 创建tr并添加
+        for (var i = 0; i < objs.length; i ++){
+            // 创建tr
+            var tr = document.createElement('tr');
+            // 在tbody 中添加tr
+            tbody.appendChild(tr);
+            // 存放数据 遍历单个对象 创建td 并添加进tr
+            for (var k in objs[i]){
+                var td = document.createElement('td');
+                td.innerHTML = objs[i][k];
+                tr.appendChild(td);
+            }
+            // 存放操作
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javaScript:;">删除</a>';  // 注意引号嵌套 外单内双
+            tr.appendChild(td);
+        }
+
+        // 以上 动态获取表格成功 开始对内容进行删除操作 点击tr的最后一个子元素td 删除当天tr
+        // 获取元素 tr td
+        var trs = tbody.children;
+        for (var i = 0; i < trs.length; i ++){
+            // 注册事件 当前tr的最后一个td点击
+            trs[i].children[trs[i].children.length - 1].onclick = function() {
+                // 执行操作 删除当前tr 即当前节点的父节点
+                tbody.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</body>
+</html>

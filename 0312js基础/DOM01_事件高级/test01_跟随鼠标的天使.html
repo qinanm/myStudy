@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./小熊跳舞.gif" alt="">
+    <script>
+        // 1. 获取元素 一张图片作为跟随鼠标移动的元素
+        // 2. 注册事件 新方法 addEventListener(type, listener) 鼠标移动onmousemove 在这个方法里 type = 'mousemove' 不带on
+        // 3. 跟随鼠标移动不影响页面文档，设置绝对定位，通过e.pageX和e.pageY来获取页面文档XY坐标并赋值
+        
+        // 获取元素
+        var img = document.querySelector('img');
+        var body = document.body;
+        // 注册事件
+        document.addEventListener('mousemove', function(e){
+            console.log(e.pageX, e.pageY);
+            img.style.top = e.pageY+'px';
+            img.style.left = e.pageX+'px';
+        });
+            
+    </script>
+</body>
+</html>
